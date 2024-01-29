@@ -1,5 +1,5 @@
 # BROKEN DOWN USER STORIES
-- used [vimeo vide](Vimeo.md) for supplement
+- used [vimeo video](Vimeo.md) for supplement
 
 <details>
 <summary>Focused on Front End</summary>
