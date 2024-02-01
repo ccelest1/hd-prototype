@@ -47,7 +47,10 @@
             * refresh page automatically when record becomes deleted
     * Nav Bar Search
         - most likely using qps, or match useContext with both button click for search or key word press enter using t3 tutorial hooks
-    *
+
+- Day
+    * installed autoprefix `npm install autoprefixer@latest cross-env --save-dev`
+    * edited client/package.json based on instructions of css autoprefixer -> [repo](https://github.com/postcss/autoprefixer)
 
 ### DS to implement
 0. perform data cleaning, examId is going to be exam_type_id
