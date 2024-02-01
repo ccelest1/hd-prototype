@@ -1,6 +1,6 @@
 # Watching vimeo linked in 1 pager -> recording notes of features, insights, etc.
 
-[Video 1](https://vimeo.com/843234440)
+[Video](https://vimeo.com/843234440)
 
 ### SECTION GLOSSARY
 - [List Exams](#list-exams-browser_urlexams--get-exams-list_examsjs)
@@ -17,7 +17,7 @@ _*SG = STRETCH GOALS*_
 
 #### (LIST EXAMS): `{browser_url}/exams/` [ GET /exams, list_exams.js]
 - Contains Patient ID, Exam ID, Image, Key Findings, Brixia Score, Age, Sex, BMI, Zip Code (only read privileges for exams)
-- Search bar for
+- Search bar for terms in key findings
 - Nav bar containing Exams, Admin Routes
 
 1. (RE1) when clicking on exam-id -> direct to singular exam
@@ -54,24 +54,28 @@ or
     * query parameters
         - [purpose](https://stackoverflow.com/questions/30967822/when-do-i-use-path-params-vs-query-params-in-a-restful-api)
         - [using QPs](https://scientyficworld.org/how-to-use-query-parameters-with-react-router/)
+    * (video showed) user inputted terms found in description of an exam and table filtered upon entering to get exam with desired description
 
 ### (ORDER EXAMS)
 - (based on video) users can sort exams based on age, sex, bmi, zip code
+    * ascending, descending on age, bmi, zip code
+    * M to F on sex
+    * filter based on chosen parameters for patients given booleans
+        - Example: `patients.filter((patient)=> patient.age===21 && patient.sex === 'M')`
 
 ## ONLY ADMINS CAN ACCESS/PERFORM
 
-#### (ADMIN PAGE): `{browser_url}/admin` [admin.js] - only accessed by those with admin privileges as compared to regular users
+### (ADMIN PAGE): `{browser_url}/admin` [admin.js] - only accessed by those with admin privileges as compared to regular users
 
 - Contains everything on list exams page except for the image (for some reason) and has update, delete abilities (read and write privileges for exams)
-
 - Upon delete or update, the website changes the get_exams view on admin and exams page i.e state is automatically fetched if changes made on admin page
-    * (maybe)
+    * __TESTING__
         * test fe in the instance an exam is deleted i.e rows shift up 1 or if exam is added shift rows down 1
         * test fe for exams page to be auto-updated when exam on admin page is deleted, updated
 
-### (CREATE EXAM): `{browser_url}/create_exam/` [POST /exams, create_exam.js]
-- Contains patient info, exam info section like that of get single exam section as well as buttons: add exam, random exam (maybe for testing purposes -> generate a new exam on spot in order to see how it is reflected on fe), cancel button
-    * (improvements)
+#### (CREATE EXAM): `{browser_url}/create_exam/` [POST /exams, create_exam.js]
+- Contains patient info, exam info section like that of get single exam section as well as buttons: add exam, random exam (maybe for testing purposes -> generate a new exam on spot in order to see how it is reflected on fe), cancel button (stop add exam process)
+    * __POTENTIAL IMPROVEMENTS__
         - Provide a scrollable list for doctors to pick a patient from that when hovering displays a clickable modal to view their info in fuller modal that pops out in front of form in the middle of screen
             - admin wants to create exam -> under select patient [list of patients] -> hover over patient name -> view preview -> click preview -> view all patient info if needed
             - have list have order, pagination options possibly
@@ -81,6 +85,9 @@ or
             * it's really hard to remember a long url to enter in a form
         - Key Findings not KeyFindings (make this convert to auto bulleted list?)
 
-### (UPDATE/DELETE EXAM): `{browser_url}/update_exam/{exam_id}` [PUT /exam_id, update_exam.js] / `{browser_url}/delete_exam/{exam_id}` [DELETE /exam_id, delete_exam.js]
+#### (UPDATE EXAM): `{browser_url}/update_exam/{exam_id}` [PUT /exam_id, update_exam.js]
 - Contains editable fields for each section for an exam -> confirm update button -> redirect to admin page
-- Other pages, fetch changes
+
+#### (DELETE EXAM):  `{browser_url}/delete_exam/{exam_id}` [DELETE /exam_id, delete_exam.js]
+- Delete button or modal that allows users to perform DELETE Crud Op
+    * press delete on report -> report disappears from table without window reload
