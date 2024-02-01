@@ -1,0 +1,49 @@
+import Logo from "./logo";
+import { useState } from "react";
+//logo will be used as a part of navbar
+import {
+    Container,
+    Box,
+    Link as ChakraLink,
+    Stack,
+    Heading,
+    Flex,
+    Menu,
+    MenuItem,
+    MenuList,
+    MenuButton,
+    IconButton,
+    useColorModeValue,
+    useBreakpointValue
+} from '@chakra-ui/react'
+// import { HamburgerIcon } from '@chakra-ui/icons'
+import { Link as ReactRouterLink } from "react-router-dom";
+
+
+const NavBar = () => {
+    const [isOpen, setisOpen] = useState("")
+    const toggle = () => setisOpen(!isOpen)
+    return (
+        <Logo />
+    )
+}
+
+const NavTut = () => {
+    return (
+        <header>
+            <Logo />
+            <div>
+                <ChakraLink
+                    as={ReactRouterLink}
+                    to="/"
+                >
+                    <h1>
+                        Rx Reports
+                    </h1>
+                </ChakraLink>
+            </div>
+        </header>
+    )
+}
+
+export default NavTut
