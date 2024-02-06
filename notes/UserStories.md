@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # USER STORIES
 
 ## Distilled Plan
@@ -31,11 +30,6 @@
     - Use functional comps to display data
 
 </details>
-
-=======
-# BROKEN DOWN USER STORIES
-- used [vimeo video](Vimeo.md) for supplement
->>>>>>> bb33c0195ff3ec9da5d828ff4d1d746b8a5ea68c
 
 <details>
 <summary>Focused on Front End</summary>
