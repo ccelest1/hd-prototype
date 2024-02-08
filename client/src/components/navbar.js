@@ -42,6 +42,36 @@ const NavTut = () => {
                     </h1>
                 </ChakraLink>
             </div>
+            <div>
+                <ChakraLink
+                    as={ReactRouterLink}
+                    to="/exams"
+                >
+                    <h1>
+                        Exams
+                    </h1>
+                </ChakraLink>
+            </div>
+            <div>
+                <ChakraLink
+                    as={ReactRouterLink}
+                    to="/single_patient"
+                >
+                    <h1>
+                        Single Patient Example
+                    </h1>
+                </ChakraLink>
+            </div>
+            <div>
+                <ChakraLink
+                    as={ReactRouterLink}
+                    to="/admin/"
+                >
+                    <h1>
+                        Admin
+                    </h1>
+                </ChakraLink>
+            </div>
         </header>
     )
 }

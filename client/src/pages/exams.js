@@ -10,6 +10,14 @@ const Exams_Page = () => {
                 const response = await fetch('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams')
                 const res = await response.json();
                 const exams_data = res["exams"]
+                console.log(exams_data)
+                const tracker = new Map()
+                exams_data.map(exam => (
+                    exam && (
+                        tracker.set(exam._id, (tracker.get(exam._id) || 0) + 1)
+                    )
+                ))
+                console.log(tracker)
                 setExams(exams_data)
             } catch (e) {
                 console.error(e)
@@ -20,16 +28,16 @@ const Exams_Page = () => {
 
     return (
         <>
-            <div>
-                <h2>Patient Exams</h2>
-            </div>
+            <h2>Patient Exams</h2>
             <div>
                 <h1>List All Exams</h1>
                 {exams.map(exam => (
                     exam && (
-                        <div key={exam.patientId}>
-                            {exam.age}
-                        </div>
+                        <>
+                            <div key={exam._id}>
+                                {exam._id}
+                            </div>
+                        </>
                     )
                 ))}
             </div>
