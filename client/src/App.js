@@ -5,6 +5,7 @@ import Exams_Page from './pages/exams';
 import NavTut from './components/navbar';
 import Landing_Page from './pages/landing_page';
 import Patient_Example from './pages/single_patient';
+import Admin_Page from './pages/admin';
 
 // Need to Perform Styling
 function App() {
@@ -31,6 +32,10 @@ function App() {
               <Route
                 path="/single_patient"
                 element={<Patient_Example />}
+              />
+              <Route
+                path="/admin"
+                element={<Admin_Page />}
               />
             </Routes>
           </div>
